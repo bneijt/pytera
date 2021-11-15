@@ -1,10 +1,26 @@
-[build-system]
-requires = ["maturin>=0.11,<0.12"]
-build-backend = "maturin"
+# [build-system]
+# requires = ["maturin>=0.11,<0.12"]
+# build-backend = "maturin"
 
 
 [project]
 name = "pytera"
 
+[tool.poetry]
+name = "pytera"
+version = "0.0.1"
+description = "Python binding to Rust Tera templating library"
+authors = ["Bram Neijt <bram@neijt.nl>"]
+license = "GPLv3"
 
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+maturin = "^0.11.5"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
 
