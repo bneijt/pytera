@@ -7,6 +7,9 @@ edition = "2018"
 name = "pytera"
 crate-type = ["cdylib"]
 
+[dependencies]
+tera = "1.15.0"
+
 [dependencies.pyo3]
 version = "0.15.0"
 features = ["extension-module"]
