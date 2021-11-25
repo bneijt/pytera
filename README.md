@@ -1,4 +1,11 @@
-Current status: completely useless
+Current status: you can call render with a dict
+
+
+	import pytera
+	pt_instance = pytera.new("templates/*")
+	pt_instance.render("index.html", {"title": "Welcome"})
+
+More in [the tests](tests/test_pytera.py).
 
 Develop
 =======
