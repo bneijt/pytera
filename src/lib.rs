@@ -22,13 +22,13 @@ fn one_off(template: String, context_dict: HashMap<String, String>, autoescape: 
 #[pymodule]
 fn pytera(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(one_off, m)?)?;
-
+    m.add_function(wrap_pyfunction!(new, m)?)?;
     Ok(())
 }
 
 #[pyfunction]
 fn new(dir: String) -> PyResult<TeraInstance> {
-    return match Tera::new(dir) {
+    return match Tera::new(dir.as_str()) {
         Ok(t) => Ok(TeraInstance{
             instance: t
         }),
