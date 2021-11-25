@@ -19,9 +19,6 @@ fn one_off(template: String, context_dict: HashMap<String, String>, autoescape: 
     }
 }
 
-/// A Python module implemented in Rust. The name of this function must match
-/// the `lib.name` setting in the `Cargo.toml`, else Python will not be able to
-/// import the module.
 #[pymodule]
 fn pytera(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(one_off, m)?)?;
