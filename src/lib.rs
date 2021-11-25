@@ -25,3 +25,23 @@ fn pytera(_py: Python, m: &PyModule) -> PyResult<()> {
 
     Ok(())
 }
+
+#[pyfunction]
+fn new(dir: String) -> PyResult<TeraInstance> {
+    return match Tera::new(dir) {
+        Ok(t) => Ok(TeraInstance{
+            instance: t
+        }),
+        Err(e) => Err(exceptions::PyValueError::new_err(e.to_string()))
+    }
+}
+
+#[pyclass]
+struct TeraInstance {
+   instance: Tera,
+}
+
+// #[pymethods]
+// impl Tera {
+
+// }
